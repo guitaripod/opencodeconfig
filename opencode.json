@@ -1,0 +1,101 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/deepseek-v4-flash-free",
+  "permission": "allow",
+  "mcp": {
+    "appstore-connect": {
+      "type": "local",
+      "command": ["npx", "-y", "@pofky/asc-mcp"],
+      "enabled": true,
+      "timeout": 30000,
+      "environment": {
+        "ASC_KEY_ID": "DSS2FFU68G",
+        "ASC_ISSUER_ID": "a5ebdab5-0ceb-463c-8151-195b902f117b",
+        "ASC_PRIVATE_KEY_PATH": "{env:HOME}/.appstoreconnect/private_keys/AuthKey_DSS2FFU68G.p8"
+      }
+    },
+    "flyr": {
+      "type": "local",
+      "command": ["flyr", "mcp"],
+      "enabled": true
+    }
+  },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "nemotron-3.5-lightning:30b-mlx": {
+          "name": "Nemotron 3.5 Lightning (MLX)",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "qwen3.6-uncensored:latest": {
+          "name": "Qwen3.6 35B A3B · Uncensored",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "gemma4:e4b-it-q8_0": {
+          "name": "Gemma 4 E4B IT · Q8",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "gemma4:latest": {
+          "name": "Gemma 4",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "qwen3:14b": {
+          "name": "Qwen3 14B",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "gpt-oss:20b": {
+          "name": "GPT-OSS 20B",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "gemma3:27b": {
+          "name": "Gemma3 27B",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "qwen3:4b": {
+          "name": "Qwen3 4B",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "qwen3:0.6b": {
+          "name": "Qwen3 0.6B",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "gemma3:4b": {
+          "name": "Gemma3 4B",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "llama3.2:latest": {
+          "name": "Llama 3.2",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "smollm2:1.7b": {
+          "name": "SmolLM2 1.7B",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "tinyllama:latest": {
+          "name": "TinyLlama",
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "gemma3:270m": {
+          "name": "Gemma3 270M",
+          "limit": { "context": 32768, "output": 8192 }
+        }
+      }
+    },
+    "kimi-code": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Kimi Code",
+      "options": {
+        "baseURL": "https://api.kimi.com/coding/v1",
+        "apiKey": "{env:KIMI_CODE_KEY}"
+      },
+      "models": {
+        "k3": { "name": "Kimi K3" }
+      }
+    }
+  }
+}
