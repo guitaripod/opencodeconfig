@@ -1,1 +1,1 @@
-../claudeconfig/opencode/command
+../../claudeconfig/opencode/command

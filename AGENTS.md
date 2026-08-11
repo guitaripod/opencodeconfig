@@ -1,1 +1,1 @@
-../claudeconfig/CLAUDE.md
+../../claudeconfig/CLAUDE.md
