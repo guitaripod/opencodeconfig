@@ -1,1 +1,1 @@
-/home/marcus/claudeconfig/opencode/command
+../claudeconfig/opencode/command
