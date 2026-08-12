@@ -10,9 +10,13 @@ Shared opencode configuration for Marcus's machines (Arch desktop + macOS MacBoo
 
 ## Keeping machines in sync
 
-1. Edit a shared file in this repo, commit, push, then `ssh mac 'cd ~/.config/opencode && git pull'`.
-2. The Mac's `package-lock.json` drifts (npm regenerates it); if `git pull` complains about unstaged changes there, `git checkout -- package-lock.json` first.
-3. SSH alias: `ssh mac` (HostName macbook, user marcus, ed25519 key).
+Run `~/claudeconfig/scripts/sync.sh` (installed on both machines):
+
+- `sync.sh` — pulls both shared repos on this machine and prunes junk (`__pycache__`, `.DS_Store`)
+- `sync.sh mac arch x1` — also pulls on those hosts (ssh config aliases; missing repos are skipped)
+- `sync.sh --push` — push pending commits here first (refuses if dirty)
+
+Skills (`~/.claude/skills/`), workflows (`~/.claude/workflows/`), commands and plugins live in the **claudeconfig** repo (`~/claudeconfig`, `guitaripod/claudeconfig`) and are symlinked into `~/.claude/` and `~/.config/opencode/` on every machine. The opencodeconfig repo holds only `opencode.json`, `tui.json`, README, LICENSE, and those symlinks. `sync.sh` covers both repos in one shot.
 
 ## Adding / changing models
 
