@@ -1,8 +1,13 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "ollama/orcarouter/Qwen3.8-27B-Uncensored:q4_K_M",
+"model": "ollama/qwen38-daily:latest",
   "small_model": "ollama/gemma4:latest",
   "permission": "allow",
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 65536
+  },
   "mcp": {
     "appstore-connect": {
       "type": "local",
