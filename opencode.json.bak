@@ -1,16 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "ollama/orcarouter/Qwen3.8-27B-Uncensored:q4_K_M",
+  "model": "ollama/gemma4:e4b-it-q8_0",
   "small_model": "ollama/gemma4:latest",
   "permission": "allow",
   "mcp": {
     "appstore-connect": {
       "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@pofky/asc-mcp"
-      ],
+      "command": ["npx", "-y", "@pofky/asc-mcp"],
       "enabled": true,
       "timeout": 30000,
       "environment": {
@@ -21,10 +17,7 @@
     },
     "flyr": {
       "type": "local",
-      "command": [
-        "flyr",
-        "mcp"
-      ],
+      "command": ["flyr", "mcp"],
       "enabled": true
     }
   },
@@ -44,9 +37,7 @@
         "apiKey": "{env:KIMI_CODE_KEY}"
       },
       "models": {
-        "k3": {
-          "name": "Kimi K3"
-        }
+        "k3": { "name": "Kimi K3" }
       }
     }
   }
