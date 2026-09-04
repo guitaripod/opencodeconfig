@@ -1,7 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
-"model": "ollama/qwen38-daily:latest",
-  "small_model": "ollama/gemma4:latest",
+  "model": "llama-server/qwen38-nvfp4",
+  "small_model": "llama-server/qwen38-nvfp4",
   "permission": "allow",
   "compaction": {
     "auto": true,
@@ -34,13 +34,6 @@
     }
   },
   "provider": {
-    "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama (local)",
-      "options": {
-        "baseURL": "http://localhost:11434/v1"
-      }
-    },
     "kimi-code": {
       "npm": "@ai-sdk/anthropic",
       "name": "Kimi Code",
@@ -51,6 +44,97 @@
       "models": {
         "k3": {
           "name": "Kimi K3"
+        }
+      }
+    },
+    "llama-server": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Llama Server (local)",
+      "options": {
+        "baseURL": "http://localhost:8081/v1"
+      },
+      "models": {
+        "qwen38-nvfp4": {
+          "name": "Qwen 3.8 27B · NVFP4 · MTP · llama.cpp",
+          "reasoning": true,
+          "tool_call": true,
+          "attachment": true,
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "variants": {
+            "think": {
+              "chat_template_kwargs": {
+                "enable_thinking": true
+              },
+              "temperature": 0.6,
+              "top_p": 0.95,
+              "top_k": 20,
+              "min_p": 0.0,
+              "reasoning_budget_tokens": 4096,
+              "reasoning_budget_message": "\n\nI have planned enough. I will now stop thinking and take the next concrete action using a tool.\n"
+            },
+            "nothink": {
+              "chat_template_kwargs": {
+                "enable_thinking": false
+              },
+              "temperature": 0.7,
+              "top_p": 0.8,
+              "top_k": 20,
+              "min_p": 0.0
+            }
+          }
+        },
+        "qwen38-uncensored": {
+          "name": "Qwen 3.8 27B · NVFP4 · Uncensored · MTP · llama.cpp",
+          "reasoning": true,
+          "tool_call": true,
+          "attachment": true,
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "variants": {
+            "think": {
+              "chat_template_kwargs": {
+                "enable_thinking": true
+              },
+              "temperature": 0.6,
+              "top_p": 0.95,
+              "top_k": 20,
+              "min_p": 0.0,
+              "reasoning_budget_tokens": 4096,
+              "reasoning_budget_message": "\n\nI have planned enough. I will now stop thinking and take the next concrete action using a tool.\n"
+            },
+            "nothink": {
+              "chat_template_kwargs": {
+                "enable_thinking": false
+              },
+              "temperature": 0.7,
+              "top_p": 0.8,
+              "top_k": 20,
+              "min_p": 0.0
+            }
+          }
         }
       }
     }
