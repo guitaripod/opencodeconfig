@@ -3,6 +3,9 @@
   "model": "llama-server/qwen38-nvfp4",
   "small_model": "llama-server/qwen38-nvfp4",
   "permission": "allow",
+  "disabled_providers": [
+    "anthropic"
+  ],
   "compaction": {
     "auto": true,
     "prune": true,
