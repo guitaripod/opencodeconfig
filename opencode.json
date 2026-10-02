@@ -34,6 +34,14 @@
         "mcp"
       ],
       "enabled": true
+    },
+    "lightpanda": {
+      "type": "local",
+      "command": [
+        "lightpanda",
+        "mcp"
+      ],
+      "enabled": true
     }
   },
   "provider": {
